@@ -1,4 +1,4 @@
-package Company;
+package Company.CompanyApp;
 
 public class Address {
 

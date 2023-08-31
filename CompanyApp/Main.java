@@ -1,4 +1,4 @@
-package Company;
+package Company.CompanyApp;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,5 +14,6 @@ public class Main {
 //        department.printAllEmployees();
 //        department.printNumberOfEmployeesAdded();
 //        department.findEmployeeByName("Ionica");
+        department.findAddressByStreet("richstreet");
     }
 }

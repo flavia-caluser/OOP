@@ -1,4 +1,4 @@
-package Company;
+package Company.CompanyApp;
 
 public class Department {
 
@@ -66,6 +66,19 @@ public class Department {
             if (employees[i].getName().equals(name)) {
                 System.out.println("Adresa angajatului " + name + " este " + employees[i].getAddress());
             }
+        }
+    }
+
+    public void findAddressByStreet(String street){
+        int nr=0;
+        for (int i = 0; i < numberOfEmployeesAdded; i++){
+            if(employees[i].getAddress().getStreet().equals(street)){
+                nr++;
+                System.out.println(employees[i].getAddressStreet() + " nr " + employees[i].getAddress().getNumber());
+            }
+        }
+        if (nr ==0){
+            System.out.println("Niciun angajat din lista nu are adresa la aceasta strada");
         }
     }
 }
