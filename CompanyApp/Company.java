@@ -45,6 +45,12 @@ public class Company {
         this.numberOfDepartmentsAdded = numberOfDepartmentsAdded;
     }
 
+    public void printAllDepartments() {
+        for (int i = 0; i < numberOfDepartmentsAdded; i++) {
+            System.out.println(departments[i].getName() + " are " + departments[i].getNumberOfEmployeesAdded() + " angajati");
+        }
+    }
+
 
 }
 
