@@ -1,5 +1,9 @@
 package Company.BankingAppEx5;
 
 public class Main {
-    BankAccount cont1 = new BankAccount(500,"leu");
+    public static void main(String[] args) {
+
+        BankAccount cont1 = new BankAccount(500, "leu");
+    }
+
 }
