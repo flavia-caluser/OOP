@@ -22,12 +22,14 @@ public class SpendingAccount extends BankAccount{
         if (amount > this.getBalance()+maxWithdrawalAmount)
             return -1;
         else{
-            return this.getBalance()-amount;
+            setBalance(getBalance() - amount);
+            return this.getBalance();
         }
     }
 
     @Override
     public int deposit(int amount) {
-        return this.getBalance()+amount;
+        setBalance(getBalance()+ amount);
+        return this.getBalance();
     }
 }

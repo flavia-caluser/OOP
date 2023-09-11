@@ -13,10 +13,10 @@ public class Main {
 
 
         person1.addAccount(cont3);
-        person1.listAccounts();
-        person1.checkAccountDetails("nr2");
-        person1.deposit("nr1", 2500);
-        person1.deposit("nr3", 25001);
-        person1.listAccounts();
+//        person1.listAccounts();
+//        person1.checkAccountDetails("nr2");
+//        person1.deposit("nr1", 2500);
+//        person1.deposit("nr3", 25001);
+//        person1.listAccounts();
     }
 }

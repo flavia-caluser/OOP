@@ -62,6 +62,15 @@ public class Person {
 
     }
 
+    public String findAccount(BankAccount cont){
+        for (int i = 0; i < numberOfAccounts; i++) {
+            if (accountList[i].equals(cont)){
+                return cont.getAccountNumber();
+            }
+        }
+        return null;
+    }
+
     public void listAccounts(){
         for (int i = 0; i < numberOfAccounts; i++) {
             System.out.println("Numarul contului " + (i+1) + " este "+ accountList[i].getAccountNumber() + " si soldul e  " + accountList[i].getBalance());
@@ -70,14 +79,22 @@ public class Person {
 
     public void deposit(String accountNumber, int amount){
         boolean contGasit = false;
+        int a=0;
         for (int i = 0; i < numberOfAccounts; i++) {
             if (accountList[i].getAccountNumber().equals(accountNumber)){
                 accountList[i].deposit(amount);
-                contGasit = true;
+                a =  accountList[i].deposit(amount);
+                if(accountList[i].deposit(amount) == -1){
+                    System.out.println("Depunere nereusita. Suma depaseste suma maxima de depunere.");
+                }else {
+                    contGasit = true;
+                }
             }
         }
-        if (contGasit == false){
+        if (contGasit == false && a != -1){
             System.out.println("Depunere nereusita. Contul nu exista in lista.");
+        }else{
+            System.out.println("Depunere reusita in contul cu numarul " + accountNumber);
         }
     }
     public void withdraw(String accountNumber, int amount){

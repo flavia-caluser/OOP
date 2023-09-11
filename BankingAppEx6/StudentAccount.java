@@ -18,7 +18,8 @@ public class StudentAccount extends BankAccount{
         if (amount > this.getBalance())
            return -1;
         else{
-            return this.getBalance()-amount;
+            setBalance(getBalance() - amount);
+            return this.getBalance();
         }
     }
 
@@ -27,7 +28,8 @@ public class StudentAccount extends BankAccount{
         if (amount > maxDepositAmount)
             return -1;
         else{
-            return this.getBalance()+amount;
+            setBalance(getBalance()+ amount);
+            return this.getBalance();
         }
     }
 }
