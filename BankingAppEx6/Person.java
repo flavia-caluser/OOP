@@ -49,7 +49,7 @@ public class Person {
 
     public void addAccount(BankAccount contNou) {
         for (int i = 0; i < numberOfAccounts; i++) {
-            if (accountList[i].getAccountNumber().equals(contNou.getAccountNumber())){
+            if (findAccountByAccountNumber(contNou.getAccountNumber()) != null){
                 System.out.println("Contul exista deja in lista.");
             }else  if (numberOfAccounts == accountList.length) {
                 System.out.println("Contul nu a fost adaugat, numarul maxim de conturi a fost atins.");
@@ -62,10 +62,10 @@ public class Person {
 
     }
 
-    public String findAccount(BankAccount cont){
+    public BankAccount findAccountByAccountNumber(String accountNumber){
         for (int i = 0; i < numberOfAccounts; i++) {
-            if (accountList[i].equals(cont)){
-                return cont.getAccountNumber();
+            if (accountList[i].equals(accountNumber)){
+                return accountList[i];
             }
         }
         return null;
@@ -78,48 +78,35 @@ public class Person {
     }
 
     public void deposit(String accountNumber, int amount){
-        boolean contGasit = false;
-        int a=0;
-        for (int i = 0; i < numberOfAccounts; i++) {
-            if (accountList[i].getAccountNumber().equals(accountNumber)){
-                accountList[i].deposit(amount);
-                a =  accountList[i].deposit(amount);
-                if(accountList[i].deposit(amount) == -1){
-                    System.out.println("Depunere nereusita. Suma depaseste suma maxima de depunere.");
-                }else {
-                    contGasit = true;
-                }
+        if (findAccountByAccountNumber(accountNumber) == null){
+            System.out.println("Depunere nereusita. Contul nu a fost gasit");
+        } else  {
+            int a = findAccountByAccountNumber(accountNumber).deposit(amount);
+            if (a == -1){
+                System.out.println("Depunere nereusita. Suma depaseste suma maxima de depunere.");
+            }else {
+                System.out.println("Depunere reusita. Soldul acum este de " + findAccountByAccountNumber(accountNumber).getBalance());
             }
-        }
-        if (contGasit == false && a != -1){
-            System.out.println("Depunere nereusita. Contul nu exista in lista.");
-        }else{
-            System.out.println("Depunere reusita in contul cu numarul " + accountNumber);
         }
     }
     public void withdraw(String accountNumber, int amount){
-        boolean contGasit = false;
-        for (int i = 0; i < numberOfAccounts; i++) {
-            if (accountList[i].getAccountNumber().equals(accountNumber)){
-                accountList[i].withdraw(amount);
-                contGasit = true;
+        if (findAccountByAccountNumber(accountNumber) == null){
+            System.out.println("Retragere nereusita. Contul nu a fost gasit");
+        } else  {
+            int a = findAccountByAccountNumber(accountNumber).deposit(amount);
+            if (a == -1){
+                System.out.println("Retragere nereusita. Fonduri insuficiente.");
+            }else {
+                System.out.println("Retragere reusita. Soldul ramas este de " + findAccountByAccountNumber(accountNumber).getBalance());
             }
-        }
-        if (contGasit == false){
-            System.out.println("Retragere nereusita. Contul nu exista in lista.");
         }
     }
 
     public void checkAccountDetails( String accountNumber) {
-        boolean contGasit = false;
-        for (int i = 0; i < numberOfAccounts; i++) {
-            if (accountList[i].getAccountNumber().equals(accountNumber)) {
-                System.out.println("Numar de cont: " + accountList[i].getAccountNumber() + " sold disponibil: "+ accountList[i].getBalance());
-                contGasit = true;
-            }
-        }
-        if (contGasit == false){
+        if (findAccountByAccountNumber(accountNumber) == null){
             System.out.println("Contul nu a fost gasit in lista.");
+        }else {
+            System.out.println("Soldul contului este: " + findAccountByAccountNumber(accountNumber).getBalance());
         }
     }
 }
