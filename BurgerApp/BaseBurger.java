@@ -1,5 +1,7 @@
 package Company.BurgerApp;
 
+import java.util.Arrays;
+
 public class BaseBurger {
 
     private String breadType;
@@ -52,5 +54,16 @@ public class BaseBurger {
 
     public void setNumberOfAdditionsAdded(int numberOfAdditionsAdded) {
         this.numberOfAdditionsAdded = numberOfAdditionsAdded;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseBurger{" +
+                "breadType='" + breadType + '\'' +
+                ", meatType='" + meatType + '\'' +
+                ", basePrice=" + basePrice +
+                ", additions=" + Arrays.toString(additions) +
+                ", numberOfAdditionsAdded=" + numberOfAdditionsAdded +
+                '}';
     }
 }
