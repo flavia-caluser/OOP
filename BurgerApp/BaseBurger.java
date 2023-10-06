@@ -56,6 +56,33 @@ public class BaseBurger {
         this.numberOfAdditionsAdded = numberOfAdditionsAdded;
     }
 
+
+    public boolean handleAddition(Addition addition) throws Exception{
+        if (numberOfAdditionsAdded == 4){
+            throw new Exception("Numarul maxim de adaugiri a fost atins");
+        }
+        addAddition(addition);
+        return true;
+    }
+
+    public boolean addAddition(Addition addition){
+        additions[numberOfAdditionsAdded]= addition;
+        numberOfAdditionsAdded++;
+        return true;
+    }
+
+    public double calculatePrice(){
+        double sum = 20.0;
+        if(numberOfAdditionsAdded == 0){
+            return basePrice;
+        } else {
+            for (int i = 0; i < numberOfAdditionsAdded; i++) {
+                sum += additions[i].getPrice();
+            }
+            return sum;
+        }
+    }
+
     @Override
     public String toString() {
         return "BaseBurger{" +
