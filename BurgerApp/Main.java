@@ -20,7 +20,7 @@ public class Main {
 
         BaseBurger deluxeBurger = new DeluxeBurger("neagra","pui");
         try {
-            deluxeBurger.handleAddition(new Addition("cartofi", 4));
+            deluxeBurger.handleAddition(new Addition("cartofi prajiti", 4));
             deluxeBurger.handleAddition(new Addition("rosii", 2));
 
         }catch (Exception e){
