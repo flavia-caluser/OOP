@@ -8,12 +8,10 @@ public class Book {
     private int totalNumberOfCopies;
     private int borrowedNumberOfCopies;
 
-    public Book(String title, String author, String ISBNCode, int totalNumberOfCopies, int borrowedNumberOfCopies) {
+    public Book(String title, String author, String ISBNCode) {
         this.title = title;
         this.author = author;
         this.ISBNCode = ISBNCode;
-        this.totalNumberOfCopies = totalNumberOfCopies;
-        this.borrowedNumberOfCopies = borrowedNumberOfCopies;
     }
 
     public String getTitle() {
@@ -54,6 +52,17 @@ public class Book {
 
     public void setBorrowedNumberOfCopies(int borrowedNumberOfCopies) {
         this.borrowedNumberOfCopies = borrowedNumberOfCopies;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", ISBNCode='" + ISBNCode + '\'' +
+                ", totalNumberOfCopies=" + totalNumberOfCopies +
+                ", borrowedNumberOfCopies=" + borrowedNumberOfCopies +
+                '}';
     }
 }
 
